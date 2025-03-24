@@ -1,0 +1,47 @@
+/* Reset y variables básicas */
+:root {
+  --primary-color: #4a6cf7;
+  --secondary-color: #6c757d;
+  --dark-color: #212529;
+  --light-color: #f8f9fa;
+  --sidebar-width: 300px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+}
+
+.portfolio-container {
+  display: flex;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: white;
+  padding: 20px;
+  position: fixed;
+  height: 100vh;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+  flex: 1;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+
+
+  
+  
