@@ -69,3 +69,83 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// Activar enlace de navegación según la sección visible
+function setActiveNavOnScroll() {
+    const sections = document.querySelectorAll('.content-section');
+    
+    window.addEventListener('scroll', function() {
+        let current = '';
+        const scrollPosition = window.scrollY + 100; // Ajustar el offset para mejor detección
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        if (current) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        } else if (window.scrollY < 100) {
+            // Si estamos al inicio de la página, activar el primer enlace
+            navLinks.forEach((link, index) => {
+                link.classList.remove('active');
+                if (index === 0) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+// Activar la función de navegación activa
+setActiveNavOnScroll();
+
+// Llamar a la función de scroll una vez para establecer el enlace activo inicial
+setTimeout(() => {
+    window.dispatchEvent(new Event('scroll'));
+}, 100);
+
+// Animación de aparición al hacer scroll
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+        }
+    });
+}, observerOptions);
+
+// Elementos a animar
+const animatedElements = document.querySelectorAll('.project-card, .timeline-item, .skills-category, .skill-icon');
+
+animatedElements.forEach(element => {
+    element.classList.add('fade-in');
+    observer.observe(element);
+});
+
+// Añadir estilos CSS para animaciones
+const style = document.createElement('style');
+style.textContent = `
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .appear {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
+document.head.appendChild(style);
