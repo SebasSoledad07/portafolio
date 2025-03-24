@@ -1,36 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Portafolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="portfolio-container">
-        <aside class="sidebar">
-            <!-- Sidebar contenido básico -->
+        <div class="sidebar-content">
+            <!-- Perfil -->
             <div class="profile">
-                <h1>Tu Nombre</h1>
-                <h2>Desarrollador Web</h2>
+                <div class="profile-image">
+                    <img src="/img/foto perfil2.png" alt="Foto de perfil">
+                </div>
+                <h1>Sebastian Soledad</h1>
+                <h2>Ingeniero en Sistemas</h2>
             </div>
-        </aside>
-        
+
+            <!-- Sobre Mí -->
+            <section id="sobre-mi" class="sidebar-section">
+                <h3>Sobre Mí</h3>
+                <div class="about-content-sidebar">
+                    <p>Soy un desarrollador web apasionado por crear soluciones digitales atractivas y funcionales.</p>
+                    <p>Con más de 5 años de experiencia en el sector, he trabajado en diversos proyectos.</p>
+                </div>
+            </section>
+
+            <!-- Contacto básico -->
+            <section id="contacto" class="sidebar-section">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>soledadsebastian07@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>+123 456 7890</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <main class="main-content">
+            <div class="mobile-menu">
+                <div class="logo">Mi<span>Portafolio</span></div>
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <header class="main-header">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#experiencia" class="active">Experiencia</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section id="experiencia" class="content-section">
+                <h2>Experiencia</h2>
+                <!-- Contenido básico -->
+            </section>
             <header>
                 <h1>Mi Portafolio</h1>
             </header>
-            
+
             <section id="experiencia">
                 <h2>Experiencia</h2>
                 <!-- Contenido básico -->
             </section>
-            
+
             <section id="habilidades">
                 <h2>Habilidades</h2>
                 <!-- Contenido básico -->
             </section>
-            
+
             <section id="proyectos">
                 <h2>Proyectos</h2>
                 <!-- Contenido básico -->
@@ -38,4 +85,5 @@
         </main>
     </div>
 </body>
+
 </html>
