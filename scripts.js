@@ -1,5 +1,5 @@
 // Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Variables
     const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.sidebar');
@@ -7,25 +7,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     const quickContact = document.querySelector('.mobile-quick-contact');
 
-    // Toggle sidebar en móvil
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('active');
-            const isActive = sidebar.classList.contains('active');
-            
-            // Cambiar el ícono del menú
-            menuToggle.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    menuToggle.addEventListener('click', function () {
+        sidebar.classList.toggle('active');
 
-            // Ocultar/Mostrar contacto rápido
-            if (quickContact) {
-                quickContact.style.display = isActive ? 'none' : 'flex';
-            }
-        });
-    }
+        // Cambiar el ícono del menú
+        if (sidebar.classList.contains('active')) {
+            menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            // Ocultar contacto rápido cuando el sidebar está abierto
+            document.querySelector('.mobile-quick-contact').style.display = 'none';
+        } else {
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            // Mostrar contacto rápido cuando el sidebar está cerrado
+            document.querySelector('.mobile-quick-contact').style.display = 'flex';
+        }
+    });
 
     // Navegación suave
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Manejar el envío del formulario
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const formData = new FormData(contactForm);
             console.log('Formulario enviado:', Object.fromEntries(formData.entries()));
@@ -62,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Activar enlace de navegación según la sección visible
     function setActiveNavOnScroll() {
         const sections = document.querySelectorAll('.content-section');
-        
-        window.addEventListener('scroll', function() {
+
+        window.addEventListener('scroll', function () {
             let current = '';
             const scrollPosition = window.scrollY + 100;
 

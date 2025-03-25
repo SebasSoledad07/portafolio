@@ -274,42 +274,6 @@ h6 {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Modificar los media queries para mostrar la información personal en móvil */
-@media (max-width: 992px) {
-  .mobile-profile {
-    display: flex;
-  }
-
-  .mobile-quick-contact {
-    display: flex;
-  }
-
-  .mobile-menu {
-    padding: 15px 20px;
-  }
-
-  /* Ajustar el logo para que no se muestre cuando está el perfil */
-  .logo {
-    display: none;
-  }
-}
-
-/* Ajustar para pantallas muy pequeñas */
-@media (max-width: 400px) {
-  .mobile-profile-info h1 {
-    font-size: 1rem;
-  }
-
-  .mobile-profile-info h2 {
-    font-size: 0.8rem;
-  }
-
-  .quick-contact-item a {
-    width: 35px;
-    height: 35px;
-  }
-}
-
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
@@ -780,5 +744,41 @@ h6 {
 
   .skill-icon {
     width: 60px;
+  }
+}
+
+/* Modificar los media queries para mostrar la información personal en móvil */
+@media (max-width: 992px) {
+  .mobile-profile {
+      display: flex;
+  }
+  
+  .mobile-quick-contact {
+      display: flex;
+  }
+  
+  .mobile-menu {
+      padding: 15px 20px;
+  }
+  
+  /* Ajustar el logo para que no se muestre cuando está el perfil */
+  .logo {
+      display: none;
+  }
+}
+
+/* Ajustar para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  .mobile-profile-info h1 {
+      font-size: 1rem;
+  }
+  
+  .mobile-profile-info h2 {
+      font-size: 0.8rem;
+  }
+  
+  .quick-contact-item a {
+      width: 35px;
+      height: 35px;
   }
 }
